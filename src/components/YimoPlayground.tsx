@@ -81,7 +81,7 @@ export const YimoPlayground = () => {
   };
 
   return (
-    <div id="playground" className="min-h-screen py-20 px-6">
+    <div id="playground" className="min-h-screen py-20 px-6 bg-gradient-to-br from-background via-card/50 to-background">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-5xl font-bold mb-4 gradient-magic bg-clip-text text-transparent">
