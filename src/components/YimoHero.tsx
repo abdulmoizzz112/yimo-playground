@@ -36,17 +36,23 @@ export const YimoHero = () => {
 
   return (
     <div id="yimo-hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Animated background particles */}
+      {/* Glass morphism background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-accent/5 to-primary-glow/5 backdrop-blur-3xl" />
+      
+      {/* Floating glass orbs */}
       <div className="absolute inset-0">
         {floatingYimos.map((yimo) => (
           <div
             key={yimo.id}
-            className="absolute w-8 h-8 bg-primary/20 rounded-full blur-sm float-animation"
+            className="absolute rounded-full bg-gradient-to-br from-primary/30 to-accent/20 backdrop-blur-md border border-white/10 float-animation"
             style={{
               left: `${yimo.x}%`,
               top: `${yimo.y}%`,
               animationDelay: `${yimo.delay}s`,
               transform: `scale(${yimo.size})`,
+              width: `${2 + yimo.size * 2}rem`,
+              height: `${2 + yimo.size * 2}rem`,
+              boxShadow: `0 0 ${20 * yimo.size}px rgba(99, 179, 237, 0.3)`,
             }}
           />
         ))}
@@ -66,17 +72,25 @@ export const YimoHero = () => {
           </p>
         </div>
 
-        {/* Interactive Yimo */}
+        {/* Interactive Yimo in Glass Container */}
         <div 
-          className="relative mx-auto w-64 h-48 cursor-pointer group"
+          className="relative mx-auto w-80 h-60 cursor-pointer group"
           onClick={handleYimoClick}
         >
-          <img 
-            src={yimoHero} 
-            alt="Magical Yimo" 
-            className="w-full h-full object-contain float-animation pulse-glow group-hover:scale-110 transition-transform duration-300"
-          />
-          <div className="absolute inset-0 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors blur-2xl scale-150" />
+          {/* Glass container */}
+          <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-white/20 shadow-2xl group-hover:shadow-primary/20 transition-all duration-500" />
+          
+          {/* Floating Yimo */}
+          <div className="absolute inset-4 flex items-center justify-center">
+            <img 
+              src={yimoHero} 
+              alt="Magical Yimo" 
+              className="w-full h-full object-contain float-animation pulse-glow group-hover:scale-110 transition-transform duration-500 drop-shadow-2xl"
+            />
+          </div>
+          
+          {/* Ambient glow */}
+          <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary/20 via-transparent to-accent/20 group-hover:from-primary/30 group-hover:to-accent/30 transition-all duration-500 blur-xl" />
         </div>
 
         {/* Action buttons */}
