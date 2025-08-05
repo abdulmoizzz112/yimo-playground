@@ -131,11 +131,11 @@ export const YimoPlayground = () => {
         {/* Game area */}
         <Card className="yimo-card relative overflow-hidden" style={{ height: '500px' }}>
           <div 
-            className="absolute inset-4 rounded-2xl border-2 border-primary/30 relative overflow-hidden"
+            className="absolute inset-4 rounded-2xl border-2 border-primary/30 relative overflow-hidden bg-gradient-to-br from-primary/5 via-accent/5 to-secondary/5"
             style={{
-              backgroundImage: `url(${yimoPlayground})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
+              backgroundImage: `radial-gradient(circle at 20% 50%, hsl(var(--primary) / 0.1), transparent 50%), 
+                                radial-gradient(circle at 80% 20%, hsl(var(--accent) / 0.1), transparent 50%), 
+                                radial-gradient(circle at 40% 80%, hsl(var(--secondary) / 0.1), transparent 50%)`,
             }}
           >
             {/* Bouncing Yimos */}
